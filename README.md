@@ -1,10 +1,10 @@
 ![Netlify Identity Widget](identity.png)
 
-[![npm version](https://badge.fury.io/js/netlify-identity-widget.svg)](https://badge.fury.io/js/netlify-identity-widget)
+[![npm version](https://badge.fury.io/js/@lonelypixels%2Fnetlify-identity-widget.svg)](https://badge.fury.io/js/@lonelypixels/netlify-identity-widget)
 
 A component used to authenticate with Netlify's Identity service.
 
-[Live demo](https://identity.netlify.com)
+[Live demo](https://identity.netlify.com), keep in mind that the original demo doesn't have the surname field.
 
 For usage example with React and React Router, please see our `/example` folder and [read the README](https://github.com/netlify/netlify-identity-widget/tree/master/example).
 
@@ -24,6 +24,13 @@ Simply include the widget on your site, and things like invites, confirmation
 codes, etc, will start working.
 
 You can add controls for the widget with HTML:
+
+## Why this repo?
+
+I needed a consistent way to keep using this great widget while forcing users to enter their surname, for that just use the `surnameDelimiter` option, surname will be saved as part of the name but with a delimiter you can use to split it in your app.
+
+![Netlify Identity Widget](surname-field.png)
+
 
 ```html
 <!DOCTYPE html>
@@ -97,16 +104,16 @@ and will only reflect breaking changes in the markup API.
 ### Module API
 
 Netlify Identity Widget also has a
-[module API](https://www.npmjs.com/package/netlify-identity-widget):
+[module API](https://www.npmjs.com/package/@lonelypixels/netlify-identity-widget):
 
 ```bash
-yarn add netlify-identity-widget
+yarn add @lonelypixels/netlify-identity-widget
 ```
 
 Import or require as usual:
 
 ```js
-const netlifyIdentity = require('netlify-identity-widget');
+const netlifyIdentity = require('@lonelypixels/netlify-identity-widget');
 
 netlifyIdentity.init({
   container: '#netlify-modal', // defaults to document.body
@@ -158,6 +165,8 @@ module API. Options include:
   APIUrl: 'https://www.example.com/.netlify/functions/identity'; // Absolute url to endpoint.  ONLY USE IN SPECIAL CASES!
   namePlaceholder: 'some-placeholder-for-Name'; // custom placeholder for name input form
   locale: 'en'; // language code for translations - available: en, fr, es, pt, hu, pl, cs, sk - default to en
+  surnameDelimiter: ',' // Use this to show a Surname field that will be saved as Name + Delimiter + Surname on the API
+}
 ```
 
 Generally avoid setting the `APIUrl`. You should only set this when your app is
