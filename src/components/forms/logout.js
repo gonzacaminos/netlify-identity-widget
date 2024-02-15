@@ -7,7 +7,11 @@ export default class LogoutForm extends Component {
     this.props.onLogout();
   };
   render() {
-    const { user, saving, t } = this.props;
+    const { user, saving, t, surnameDelimiter } = this.props;
+    const full_name = user.user_metadata.full_name || user.user_metadata.name;
+    const name = !surnameDelimiter
+      ? full_name
+      : full_name.replace(surnameDelimiter, " ");
 
     return (
       <form
@@ -16,11 +20,7 @@ export default class LogoutForm extends Component {
       >
         <p className="infoText">
           {t("logged_in_as")} <br />
-          <span className="infoTextEmail">
-            {user.user_metadata.full_name ||
-              user.user_metadata.name ||
-              user.email}
-          </span>
+          <span className="infoTextEmail">{name || user.email}</span>
         </p>
         <Button
           saving={saving}
