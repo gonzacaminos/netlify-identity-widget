@@ -222,10 +222,19 @@ function runRoutes() {
 }
 
 function init(options = {}) {
-  const { APIUrl, logo = true, namePlaceholder, locale } = options;
+  const {
+    APIUrl,
+    logo = true,
+    namePlaceholder,
+    locale,
+    surnameDelimiter
+  } = options;
 
   if (locale) {
     store.locale = locale;
+  }
+  if (surnameDelimiter) {
+    store.surnameDelimiter = surnameDelimiter;
   }
 
   const controlEls = document.querySelectorAll(

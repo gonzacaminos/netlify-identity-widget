@@ -65,15 +65,17 @@ class App extends Component {
   clearSiteURL = (url) => this.props.store.clearSiteURL();
   clearStoreError = () => this.props.store.setError();
   handleExternalLogin = (provider) => this.props.store.externalLogin(provider);
-  handleUser = ({ name, email, password }) => {
+  handleUser = ({ name, surname, email, password }) => {
     const { store } = this.props;
-
+    const _name = !store.surnameDelimiter
+      ? name
+      : `${name}${store.surnameDelimiter}${surname}`;
     switch (store.modal.page) {
       case "login":
         store.login(email, password);
         break;
       case "signup":
-        store.signup(name, email, password);
+        store.signup(_name, email, password);
         break;
       case "amnesia":
         store.requestPasswordRecovery(email);
@@ -91,6 +93,7 @@ class App extends Component {
     const { store } = this.props;
     const page = pages[store.modal.page] || {};
     const pageLinkHandler = () => this.handlePage(page.link);
+    console.log(store);
 
     if (store.isLocal && store.siteURL === null) {
       return (
@@ -109,6 +112,7 @@ class App extends Component {
         <LogoutForm
           user={store.user}
           saving={store.saving}
+          surnameDelimiter={store.surnameDelimiter}
           onLogout={this.handleLogout}
           t={store.translate}
         />
@@ -124,6 +128,7 @@ class App extends Component {
           page={pages[store.modal.page] || {}}
           message={store.message}
           saving={store.saving}
+          surnameDelimiter={store.surnameDelimiter}
           onSubmit={this.handleUser}
           namePlaceholder={store.namePlaceholder}
           t={store.translate}

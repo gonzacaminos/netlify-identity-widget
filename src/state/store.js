@@ -14,6 +14,7 @@ const store = observable({
   invite_token: null,
   email_change_token: null,
   namePlaceholder: null,
+  surNameDelimiter: null,
   modal: {
     page: "login",
     isOpen: false,
