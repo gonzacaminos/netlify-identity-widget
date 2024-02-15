@@ -8,8 +8,13 @@ if (typeof window !== undefined) {
 }
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => {
-    netlifyIdentity.init();
+    netlifyIdentity.init({
+      surnameDelimiter: ",",
+      locale: "es"
+    });
   });
 } else {
-  netlifyIdentity.init();
+  netlifyIdentity.init({
+    surnameDelimiter: ","
+  });
 }
