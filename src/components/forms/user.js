@@ -18,8 +18,9 @@ export default class UserForm extends Component {
   };
 
   render() {
-    const { page, message, saving, namePlaceholder, t } = this.props;
-    const { name, email, password } = this.state;
+    const { page, message, saving, namePlaceholder, t, surnameDelimiter } =
+      this.props;
+    const { name, surname, email, password } = this.state;
 
     return (
       <form
@@ -40,6 +41,28 @@ export default class UserForm extends Component {
                 value={name}
                 placeholder={
                   namePlaceholder ? namePlaceholder : t("form_name_label")
+                }
+                autocapitalize="off"
+                required
+                oninput={this.handleInput}
+              />
+              <div className="inputFieldIcon inputFieldName" />
+            </label>
+          </div>
+        )}
+        {page.name && surnameDelimiter && (
+          <div className="formGroup">
+            <label>
+              <span className="visuallyHidden">
+                {t("form_surname_placeholder")}
+              </span>
+              <input
+                className="formControl"
+                type="name"
+                name="surname"
+                value={surname}
+                placeholder={
+                  namePlaceholder ? namePlaceholder : t("form_surname_label")
                 }
                 autocapitalize="off"
                 required
