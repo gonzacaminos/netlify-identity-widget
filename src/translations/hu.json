@@ -40,5 +40,6 @@
   "Invalid Password": "Helytelen Jelszó",
   "Email not confirmed": "Az e-mail nem erősült meg",
   "User not found": "Felhasználó nem található",
-  "A user with this email address has already been registered": "Egy felhasználó ezzel az e-mail címmel már regisztrált."
+  "A user with this email address has already been registered": "Egy felhasználó ezzel az e-mail címmel már regisztrált.",
+  "No user found with that email, or password invalid.": "Nem található felhasználó ezzel az e-mail címmel, vagy érvénytelen jelszó."
 }

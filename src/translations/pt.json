@@ -40,5 +40,6 @@
   "Invalid Password": "Senha inválida",
   "Email not confirmed": "Email não confirmado",
   "User not found": "Usuário não encontrado",
-  "A user with this email address has already been registered": "Um usuário com este endereço de e-mail já foi registrado."
+  "A user with this email address has already been registered": "Um usuário com este endereço de e-mail já foi registrado.",
+  "No user found with that email, or password invalid.": "Nenhum usuário encontrado com esse e-mail, ou senha inválida."
 }

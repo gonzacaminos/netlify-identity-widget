@@ -40,5 +40,6 @@
   "continue_with": "Продолжить с",
   "Email not confirmed": "Адрес электронной почты не подтверждён",
   "User not found": "Пользователь не найден",
-  "A user with this email address has already been registered": "Пользователь с этим адресом электронной почты уже зарегистрирован."
+  "A user with this email address has already been registered": "Пользователь с этим адресом электронной почты уже зарегистрирован.",
+  "No user found with that email, or password invalid.": "Пользователь с таким адресом электронной почты не найден или неверный пароль."
 }
